@@ -1,0 +1,128 @@
+body {
+  background-image: url("/static/images/qw.jpg");
+  background-size: cover;
+  background-position: center;
+  color: #f8f9fa;
+}
+
+.navbar {
+  background-color: rgba(0, 0, 0, 0.041) !important;
+}
+.marquee {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #000;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 10px;
+  font-size: 30px;
+  line-height: 30px;
+  animation: marquee 30s linear infinite;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+.nav-link {
+  color: #f8f9fa !important;
+  font-size: 25px;
+}
+
+.jumbotron {
+  background-color: rgba(0, 0, 0, 0);
+  color: #f8f9fa;
+  padding: 4rem 2rem;
+  border-radius: 10px;
+  margin-left: 50%;
+}
+
+.btn-primary,
+.btn-success {
+  background: linear-gradient(135deg, #6f42c1 30%, #6610f2 100%);
+  border: none;
+  transition: background 0.3s ease-in-out;
+}
+
+.btn-primary:hover,
+.btn-success:hover {
+  background: linear-gradient(135deg, #6610f2 30%, #6f42c1 100%);
+  transform: scale(1.05);
+}
+
+.card {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #f8f9fa;
+  border-radius: 10px;
+  margin: 0 auto; /* Center the card horizontally */
+}
+
+.progress {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.progress-bar {
+  background-color: #6610f2;
+}
+
+#uploadSection,
+#resultsSection {
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-left: 40%;
+}
+
+#uploadSection .card,
+#resultsSection .card {
+  width: 100%;
+  max-width: 500px;
+  margin-left: 30%;
+}
+
+.section-heading {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Ensure similar padding and margins for both sections */
+#uploadSection,
+#resultsSection {
+  padding: 50px 0;
+}
+
+#uploadSection h2,
+#resultsSection h2 {
+  text-align: center;
+  color: #f8f9fa;
+}
+
+#resultsSection {
+  text-align: left; /* Align text to the left for analysis */
+}
+
+#resultsSection h2:hover,
+#resultsSection p:hover {
+  color: yellow; /* Change the color on hover for consistency */
+}
+
+#aboutSection {
+  text-align: left; /* Align text to the left */
+  margin-right: 0 auto; /* Center the section */
+  padding: 200px; /* Adjust padding as needed */
+  max-width: 1000px; /* Limit the maximum width */
+}
+#aboutSection h2:hover,
+#aboutSection p:hover {
+  color: yellow; /* Change the color on hover */
+}
