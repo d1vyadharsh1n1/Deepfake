@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deep Fake Detection Tool</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Custom CSS -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">Deep Fake Detector</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" id="aboutButton">About</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <section class="jumbotron text-center">
+      <div class="container">
+        <h1 class="jumbotron-heading">Deep Fake Detection Tool</h1>
+        <p class="lead text-muted">
+          Upload a video to analyze for potential deep fakes.
+        </p>
+      </div>
+    </section>
+
+    <!-- Video Upload Section -->
+    <section id="uploadSection" class="container mt-5">
+      <div class="card">
+        <div class="card-body">
+          <h2 class="section-heading">Upload Video for Analysis</h2>
+          <form
+            id="uploadForm"
+            action="{{ url_for('upload_file') }}"
+            method="post"
+            enctype="multipart/form-data"
+          >
+            <div class="form-group">
+              <label for="videoUpload">Select Video</label>
+              <input
+                type="file"
+                class="form-control-file"
+                id="videoUpload"
+                name="video"
+                accept="video/*"
+              />
+            </div>
+            <button type="submit" class="btn btn-success btn-block">
+              Upload and Analyze
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="aboutSection" class="container mt-5 d-none">
+      <h2>About Us</h2>
+      <p>
+        This tool is designed to detect deep fakes in videos. Our advanced
+        algorithms analyze video frames to identify potential manipulations and
+        provide a confidence score to help you determine the authenticity of the
+        content.
+      </p>
+    </section>
+
+    <!-- Analysis Progress Section -->
+    <section id="progressSection" class="container mt-5 d-none">
+      <h2>Analysis in Progress</h2>
+      <div class="progress">
+        <div
+          id="progressBar"
+          class="progress-bar progress-bar-striped progress-bar-animated"
+          role="progressbar"
+          style="width: 0%"
+          aria-valuenow="0"
+          aria-valuemin="0"
+          aria-valuemax="100"
+        >
+          0%
+        </div>
+      </div>
+    </section>
+
+    <!-- Results Section -->
+    <section id="resultsSection" class="container mt-5 d-none">
+      <h2>Analysis Results</h2>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Video Analysis Summary</h5>
+          <ul>
+            <li>
+              <strong>Deep Fake Detected:</strong>
+              <span id="fakeStatus">No</span>
+            </li>
+            <li>
+              <strong>Confidence Score:</strong>
+              <span id="confidenceScore">N/A</span>
+            </li>
+            <li>
+              <strong>Analysis Details:</strong>
+              <ul id="analysisDetails"></ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+  </body>
+</html>
